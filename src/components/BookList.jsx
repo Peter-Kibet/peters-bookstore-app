@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types"; // Import prop-types
-import Book from "./Book";
-import "../styles/BookList.css";
+import React from 'react';
+import PropTypes from 'prop-types'; // Import prop-types
+import Book from './Book';
+import '../styles/BookList.css';
 
 const BookList = ({ books }) => (
   <div className="bookList">
@@ -18,7 +18,7 @@ BookList.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types"; // Import prop-types
-import "../styles/Book.css";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // Import prop-types
+import '../styles/Book.css';
 
 const Book = ({ book }) => {
   const [isDeleted, setIsDeleted] = useState(false);
@@ -13,7 +13,10 @@ const Book = ({ book }) => {
   return !isDeleted ? (
     <div className="books">
       <span>
-        {book.title} - {book.author}
+        {book.title}
+        {' '}
+        -
+        {book.author}
       </span>
       <button type="button" onClick={handleDelete}>
         Delete
