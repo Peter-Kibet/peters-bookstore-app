@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BookList from "../components/BookList";
 import BookForm from "../components/BookForm";
+import "../styles/Home.css";
 
 const HomePage = () => {
   const [books, setBooks] = useState([]);
