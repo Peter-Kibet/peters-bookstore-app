@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/BookForm.css";
 
 const BookForm = ({ onAdd }) => {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ const BookForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-class" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Title"
