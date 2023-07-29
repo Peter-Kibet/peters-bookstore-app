@@ -1,9 +1,6 @@
-# Peter's Bookstore Project
-
 <div align="center">
-  <br/>
 
-  <h3><b>Peter's Bookstore Project</b></h3>
+# Peter's Bookstore Project
 
 </div>
 
