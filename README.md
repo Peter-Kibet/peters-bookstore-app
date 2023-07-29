@@ -144,7 +144,7 @@ npm run build
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
+All contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
