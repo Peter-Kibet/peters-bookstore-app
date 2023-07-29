@@ -1,13 +1,12 @@
-// src/components/Book.js
 import React from "react";
 
-const Book = ({ book, onDeleteBook }) => {
+const Book = ({ book, onDelete }) => {
   return (
     <div>
-      <p>Title: {book.title}</p>
-      <p>Author: {book.author}</p>
-      <p>Category: {book.category}</p>
-      <button onClick={() => onDeleteBook(book.id)}>Delete</button>
+      <span>
+        {book.title} - {book.author}
+      </span>
+      <button onClick={() => onDelete(book.id)}>Delete</button>
     </div>
   );
 };

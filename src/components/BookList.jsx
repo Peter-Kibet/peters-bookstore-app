@@ -1,13 +1,11 @@
-// src/components/BookList.js
 import React from "react";
-import Book from "./Book";
+import Book from "../components/Book";
 
-const BookList = ({ books, onDeleteBook }) => {
+const BookList = ({ books, onDelete }) => {
   return (
     <div>
-      <h2>Book List</h2>
       {books.map((book) => (
-        <Book key={book.id} book={book} onDeleteBook={onDeleteBook} />
+        <Book key={book.id} book={book} onDelete={onDelete} />
       ))}
     </div>
   );
