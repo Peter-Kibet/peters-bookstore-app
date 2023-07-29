@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-import '../styles/BookForm.css';
+import React, { useState } from "react";
+import PropTypes from "prop-types"; // Import prop-types
+import "../styles/BookForm.css";
 
 const BookForm = ({ onAdd }) => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (title.trim() === "" || author.trim() === "") {
+      return;
+    }
+
     const newBook = {
-      id: Date.now(),
+      id: Date.now(), // You can use a unique ID generator library for better ID generation
       title,
       author,
     };
     onAdd(newBook);
-    setTitle('');
-    setAuthor('');
+    setTitle("");
+    setAuthor("");
   };
 
   return (
@@ -34,6 +39,11 @@ const BookForm = ({ onAdd }) => {
       <button type="submit">Add Book</button>
     </form>
   );
+};
+
+// Add propTypes to validate the expected props
+BookForm.propTypes = {
+  onAdd: PropTypes.func.isRequired,
 };
 
 export default BookForm;
