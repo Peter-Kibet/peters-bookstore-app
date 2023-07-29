@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "../styles/BookForm.css";
+import React, { useState } from 'react';
+import '../styles/BookForm.css';
 
 const BookForm = ({ onAdd }) => {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +13,8 @@ const BookForm = ({ onAdd }) => {
       author,
     };
     onAdd(newBook);
-    setTitle("");
-    setAuthor("");
+    setTitle('');
+    setAuthor('');
   };
 
   return (
