@@ -1,8 +1,9 @@
 import React from "react";
+import "../styles/Book.css";
 
 const Book = ({ book, onDelete }) => {
   return (
-    <div>
+    <div className="books">
       <span>
         {book.title} - {book.author}
       </span>

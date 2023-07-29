@@ -8,6 +8,8 @@
   border: 2px solid #ff5f13;
   margin: 2em;
   border-radius: 2em;
+  height: fit-content;
+  padding-bottom: 2em;
 }
 
 .home h1 {
