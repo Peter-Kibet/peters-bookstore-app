@@ -123,8 +123,6 @@ npm run build
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Peter Kibet**
 
 - GitHub: [@githubhandle](https://github.com/Peter-Kibet)
@@ -136,8 +134,6 @@ npm run build
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe future features you plan to add to the project.
 
 - [ ] **[Populate categories page]**
 - [ ] **[Display the percentage read per each book]**
@@ -169,3 +165,11 @@ If you like this project, please be kind enough to give it a star.
 - [Microverse](https://www.microverse.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
