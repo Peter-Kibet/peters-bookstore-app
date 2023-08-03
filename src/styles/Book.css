@@ -1,0 +1,29 @@
+/* Add this CSS in a separate file named Book.css */
+
+.books {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.books span {
+  font-size: 16px;
+}
+
+.books button {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.books button:hover {
+  background-color: #d32f2f;
+}
