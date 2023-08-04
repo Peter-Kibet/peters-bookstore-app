@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Import prop-types
+import { useDispatch } from 'react-redux';
 import '../styles/BookForm.css';
+import { addBook } from '../redux/books/booksSlice';
 
-const BookForm = ({ onAdd }) => {
+const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +15,15 @@ const BookForm = ({ onAdd }) => {
     }
 
     const newBook = {
-      id: Date.now(), // You can use a unique ID generator library for better ID generation
+      id: Date.now(),
       title,
       author,
     };
-    onAdd(newBook);
+
+    // Dispatch the addBook action to update the Redux store
+    dispatch(addBook(newBook));
+
+    // Reset the form inputs after adding the book
     setTitle('');
     setAuthor('');
   };
@@ -39,11 +45,6 @@ const BookForm = ({ onAdd }) => {
       <button type="submit">Add Book</button>
     </form>
   );
-};
-
-// Add propTypes to validate the expected props
-BookForm.propTypes = {
-  onAdd: PropTypes.func.isRequired,
 };
 
 export default BookForm;
