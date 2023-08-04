@@ -4,17 +4,22 @@ import PropTypes from 'prop-types';
 import '../styles/Book.css';
 import { removeBook } from '../redux/books/booksSlice';
 
-const Book = ({ bookId }) => {
+const Book = ({ itemId }) => {
   const dispatch = useDispatch();
-  const book = useSelector((state) => state.books.books.find((book) => book.id === bookId));
+  const book = useSelector((state) => state.books.books.find((book) => book.item_id === itemId));
 
   const [isDeleted, setIsDeleted] = useState(false);
 
   const handleDelete = () => {
     // Dispatch the removeBook action to update the Redux store
-    dispatch(removeBook(bookId));
+    dispatch(removeBook(itemId));
     setIsDeleted(true);
   };
+
+  if (!book) {
+    // Book not found, handle the case gracefully
+    return <div>Book not found.</div>;
+  }
 
   return !isDeleted ? (
     <div className="books">
@@ -24,6 +29,8 @@ const Book = ({ bookId }) => {
         -
         {book.author}
       </span>
+      <span className="category">{book.category}</span>
+
       <button type="button" onClick={handleDelete}>
         Delete
       </button>
@@ -32,7 +39,7 @@ const Book = ({ bookId }) => {
 };
 
 Book.propTypes = {
-  bookId: PropTypes.number.isRequired,
+  itemId: PropTypes.string.isRequired,
 };
 
 export default Book;
