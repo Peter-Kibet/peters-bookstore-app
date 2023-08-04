@@ -9,7 +9,7 @@ const BookList = () => {
   return (
     <div className="bookList">
       {books.map((book) => (
-        <Book key={book.id} bookId={book.id} /> // Pass 'book.id' as 'bookId' prop
+        <Book key={book.id} bookId={book.id} />
       ))}
     </div>
   );
