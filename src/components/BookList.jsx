@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types'; // Import prop-types
 import { useSelector } from 'react-redux';
 import Book from './Book';
 import '../styles/BookList.css';
@@ -10,7 +9,7 @@ const BookList = () => {
   return (
     <div className="bookList">
       {books.map((book) => (
-        <Book key={book.id} book={book} />
+        <Book key={book.id} bookId={book.id} /> // Pass 'book.id' as 'bookId' prop
       ))}
     </div>
   );

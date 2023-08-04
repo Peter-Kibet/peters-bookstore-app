@@ -6,7 +6,7 @@ import { removeBook } from '../redux/books/booksSlice';
 
 const Book = ({ bookId }) => {
   const dispatch = useDispatch();
-  const book = useSelector((state) => state.books.find((book) => book.id === bookId));
+  const book = useSelector((state) => state.books.books.find((book) => book.id === bookId));
 
   const [isDeleted, setIsDeleted] = useState(false);
 
