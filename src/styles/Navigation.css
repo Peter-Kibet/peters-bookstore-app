@@ -1,6 +1,7 @@
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 5rem;
   align-items: center;
   padding: 0 1rem;
   height: 10vh;
@@ -9,17 +10,35 @@
   z-index: 1;
 }
 
-.header a {
-  text-decoration: none;
-  color: #000;
+.logo {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  color: #ff5f13;
+}
+
+.header a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  background-color: #ff5f13;
+  padding: 1.5em;
+  border-radius: 10px;
+  width: 8em;
+  text-align: center;
 }
 
 .header a:hover {
   color: #f00;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ff5f13;
 }
 
 .header a.active {

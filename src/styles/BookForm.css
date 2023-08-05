@@ -12,7 +12,7 @@
   gap: 1em;
 }
 
-h2 {
+.formHeader {
   font-size: 24px;
   font-weight: 600;
   color: #ff5f13;
