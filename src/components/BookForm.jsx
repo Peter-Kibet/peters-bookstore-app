@@ -15,9 +15,10 @@ const BookForm = () => {
     }
 
     const newBook = {
-      id: Date.now(),
+      item_id: Date.now().toString(), // Make sure to use 'item_id' instead of 'id'
       title,
       author,
+      category: 'Fiction', // You can set the category value here as well
     };
 
     // Dispatch the addBook action to update the Redux store
