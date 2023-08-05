@@ -9,7 +9,6 @@ const Book = ({ itemId }) => {
   const book = useSelector((state) => state.books.books.find((book) => book.item_id === itemId));
 
   const handleDelete = () => {
-    // Dispatch the removeBook action to update the Redux store
     dispatch(removeBook(itemId));
   };
 

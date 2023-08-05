@@ -1,46 +1,74 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-const APP_ID = 'your_app_id'; // Replace 'your_app_id' with the actual ID of your app obtained from the API
+// Replace the base URL with the actual base URL of the Bookstore API
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
 
+// Async thunk for fetching books from the API
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/apps/${APP_ID}/books`);
-    return response.data;
-  } catch (error) {
-    throw new Error('Error fetching books from the API');
-  }
+  const response = await axios.get(`${baseURL}/apps/abc123/books`);
+  return response.data;
 });
+
+// Async thunk for adding a book to the API
+export const addBookToAPI = createAsyncThunk(
+  'books/addBook',
+  async (bookData) => {
+    const response = await axios.post(`${baseURL}/apps/abc123/books`, bookData);
+    return response.data;
+  },
+);
+
+// Async thunk for removing a book from the API
+export const removeBookFromAPI = createAsyncThunk(
+  'books/removeBook',
+  async (itemId) => {
+    await axios.delete(`${baseURL}/apps/abc123/books/${itemId}`);
+    return itemId;
+  },
+);
 
 const initialState = {
   books: [],
-  status: 'idle',
-  error: null,
 };
 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    // Your other reducer functions (e.g., addBook, removeBook) go here...
+    addBook: (state, action) => {
+      const existingBook = state.books.findIndex(
+        (book) => book.item_id === action.payload.item_id,
+      );
+
+      if (existingBook !== -1) {
+        state.books[existingBook] = action.payload;
+      } else {
+        state.books.push(action.payload);
+      }
+    },
+    removeBook: (state, action) => {
+      const itemIdToDelete = action.payload;
+      state.books = state.books.filter(
+        (book) => book.item_id !== itemIdToDelete,
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBooks.pending, (state) => {
-        state.status = 'loading';
-      })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.status = 'succeeded';
         state.books = action.payload;
       })
-      .addCase(fetchBooks.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
+      .addCase(addBookToAPI.fulfilled, (state, action) => {
+        state.books.push(action.payload);
+      })
+      .addCase(removeBookFromAPI.fulfilled, (state, action) => {
+        state.books = state.books.filter(
+          (book) => book.item_id !== action.payload,
+        );
       });
   },
 });
 
 export const { addBook, removeBook } = booksSlice.actions;
-
 export default booksSlice.reducer;
