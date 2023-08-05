@@ -18,8 +18,9 @@ const HomePage = () => {
   return (
     <div className="home">
       <h1>Bookstore</h1>
-      <BookForm onAdd={handleAddBook} />
+
       <BookList books={books} onDelete={handleDeleteBook} />
+      <BookForm onAdd={handleAddBook} />
     </div>
   );
 };
